@@ -17,5 +17,20 @@ class SpaceTest < Minitest::Test
     assert_equal "blank", @space.status
   end
 
+  def test_it_can_get_hit
+    @space.status = "hit"
+    assert_equal "hit", @space.status = "hit"
+  end
+
+  def test_it_can_get_missed
+    assert_equal "miss", @space.status = "miss"
+  end 
+
+
+  def test_it_starts_unoccupied
+    assert_equal false, @space.occupied
+  end
+
+
 
 end
