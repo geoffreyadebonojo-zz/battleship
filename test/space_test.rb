@@ -26,9 +26,12 @@ class SpaceTest < Minitest::Test
     assert_equal "miss", @space.status = "miss"
   end 
 
-
   def test_it_starts_unoccupied
     assert_equal false, @space.occupied
+  end
+
+  def test_it_can_hold_ship
+    
   end
 
 

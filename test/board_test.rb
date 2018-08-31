@@ -12,6 +12,11 @@ class BoardTest < Minitest::Test
 		assert_instance_of Board, @board
 	end
 
+	def test_all_cells
+		@board.spaces.each do |space|
+			assert_instance_of Space, space
+		end
+	end
 
 
 end
