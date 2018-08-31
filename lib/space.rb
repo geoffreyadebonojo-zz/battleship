@@ -1,6 +1,7 @@
 class Space
 
-  def initialize
+  def initialize(status= "blank")
+    @status = status
   end
 
 end

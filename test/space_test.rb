@@ -13,4 +13,9 @@ class SpaceTest < Minitest::Test
     assert_instance_of Space, @space
   end
 
+  def test_it_starts_blank
+    assert_equal "blank", @space.status
+  end
+
+
 end
