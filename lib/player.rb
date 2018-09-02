@@ -1,13 +1,14 @@
 # player
 class Player
-  attr_reader :current_choice
+  attr_reader :current_choice, :all_choices
 
   def initialize
-    @current_choice = [] # <= 
+    @all_choices = []
+    @current_choice = @all_choices.last
   end
 
-  def choose(x,y)
-    @current_choice << Space.new(x,y)
+  def choose(chosen_space)
+    @all_choices << chosen_space
   end
 end
 
