@@ -47,4 +47,6 @@ class GameTest < Minitest::Test
     assert_equal [guess_1], @game.player_1_guesses(guess_1)
     assert_equal [guess_1, guess_2], @game.player_1_guesses(guess_2)
   end
+
+  
 end

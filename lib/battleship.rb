@@ -18,9 +18,10 @@ print ">"
 reply = gets.chomp.to_s.downcase
 if reply == "p"
   p "Show ship layout"
-  # game.ship_layout
+  binding.pry
 elsif reply == "i"
   p "Show instructions"
+  binding.pry
 elsif reply == "q"
 end
 
