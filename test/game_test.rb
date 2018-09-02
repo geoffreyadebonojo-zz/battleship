@@ -9,7 +9,9 @@ require './lib/space'
 class GameTest < Minitest::Test
 
   def setup
-    @game = Game.new
+    human = Player.new
+    computer = Player.new
+    @game = Game.new(human, computer)
   end
 
   def test_it_exists
