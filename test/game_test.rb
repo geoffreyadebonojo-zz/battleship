@@ -23,10 +23,17 @@ class GameTest < Minitest::Test
   def test_add_player_ships
     submarine = Ship.new("submarine")
     destroyer = Ship.new("destroyer")
-    ships = [submarine, destroyer]
-    @game.add_player_1_ships(ships)
+    carrier = Ship.new("carrier")
+    battleship = Ship.new("battleship")
 
-    assert_equal ships, @game.player_1.ships
+    ships_1 = [submarine, destroyer]
+    @game.add_player_1_ships(ships_1)
+
+    ships_2 = [carrier, battleship]
+    @game.add_player_2_ships(ships_2)
+
+    assert_equal ships_1, @game.player_1.ships
+    assert_equal ships_2, @game.player_2.ships
   end
 
 end
