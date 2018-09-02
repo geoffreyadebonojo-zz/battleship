@@ -27,7 +27,13 @@ class ComputerPlayerTest < Minitest::Test
     space = Space.new("A3")
     @computer.choose(space)
     assert_equal true, @computer.already_chosen?(space)
+  end
 
+  def test_it_doesnt_false_positive_for_repeats
+    space_1 = Space.new("A3")
+    space_2 = Space.new("B3")
+    @computer.choose(space_1)
+    assert_equal false, @computer.already_chosen?(space_2)
   end
 
 end
