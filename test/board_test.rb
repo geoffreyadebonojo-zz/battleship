@@ -41,8 +41,11 @@ class BoardTest < Minitest::Test
 	def test_it_can_set_spaces_as_occupied
 		@board.load_spaces(@all_spaces)
 		space = Space.new("C3")
-		@board.set_space_as_occupied(space)
+		row_symbol = "row_#{space.coordinates[0]}".to_sym
+		target_space = @board.board[row_symbol][space.coordinates[1].to_i - 1]
 
+		@board.set_space_as_occupied(space)
+		assert_equal true, target_space.occupied
 	end
 
 end
