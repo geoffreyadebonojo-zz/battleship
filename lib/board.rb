@@ -27,7 +27,6 @@ class Board
     else target_space.occupied
       space.status = "miss"
     end
-
     
   end
   
