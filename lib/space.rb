@@ -9,7 +9,11 @@ class Space
   end
 
   def check_hit
+    " "
     if @occupied == true
+      "H"
+    elsif @occupied == false
+      "M"
     end
   end
 
@@ -29,6 +33,5 @@ class Space
   def col
     @coordinates[1].to_i - 1
   end
-
 
 end

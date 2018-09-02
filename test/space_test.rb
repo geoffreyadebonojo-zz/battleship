@@ -23,22 +23,17 @@ class SpaceTest < Minitest::Test
   end
 
   def test_it_can_get_hit
-    @space.status = "hit"
-    assert_equal "hit", @space.status = "hit"
+    @space.occupied = true
+    assert_equal "H", @space.check_hit
   end
 
   def test_it_can_get_missed
-    assert_equal "miss", @space.status = "miss"
+    @space.occupied = false
+    assert_equal "M", @space.check_hit
   end 
 
   def test_it_starts_unoccupied
     assert_equal false, @space.occupied
   end
-
-  def test_it_can_hold_ship
-    skip
-  end
-
-
 
 end
