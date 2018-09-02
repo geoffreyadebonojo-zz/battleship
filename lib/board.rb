@@ -19,12 +19,16 @@ class Board
     target_space.occupied = true
   end
 
-  def check_hits_and_misses(space)
+  def check_for_hits(space)
     row_symbol = "row_#{space.coordinates[0]}".to_sym
     target_space = @board[row_symbol][space.coordinates[1].to_i - 1]
-    if target_space.occupied == true
-      target_space.status = "hit"
+    if target_space.occupied
+      space.status = "hit"
+    else target_space.occupied
+      space.status = "miss"
     end
+
+    
   end
   
 

@@ -48,4 +48,23 @@ class BoardTest < Minitest::Test
 		assert_equal true, target_space.occupied
 	end
 
+	def test_it_updates_hits
+		@board.load_spaces(@all_spaces)
+		space = Space.new("C3")
+		@board.set_space_as_occupied(space)
+		@board.check_for_hits(space)
+
+		assert_equal "hit", space.status
+	end
+
+	def test_it_updates_misses
+		@board.load_spaces(@all_spaces)
+		space = Space.new("C3")
+		@board.set_space_as_occupied(space)
+		other_space = Space.new("B1")
+		@board.check_for_hits(other_space)
+		
+		assert_equal "miss", other_space.status
+	end
+
 end
