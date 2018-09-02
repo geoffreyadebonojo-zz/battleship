@@ -1,6 +1,6 @@
 class Ship
   
-  attr_reader :coordinates
+  attr_reader :type, :coordinates
 
   def initialize(type)
     @type = type

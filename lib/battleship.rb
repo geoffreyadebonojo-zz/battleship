@@ -1,5 +1,6 @@
 require 'pry'
 require './lib/player'
+require './lib/computer_player'
 require './lib/game'
 require './lib/space'
 require './lib/ship'
