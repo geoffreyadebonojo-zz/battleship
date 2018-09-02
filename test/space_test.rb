@@ -6,11 +6,16 @@ require './lib/space'
 class SpaceTest < Minitest::Test
   
   def setup
-    @space = Space.new(0,0)
+    @space = Space.new("A2")
   end
 
   def test_it_exists
     assert_instance_of Space, @space
+  end
+
+  def test_it_reads_cow_and_col
+    assert_equal 0, @space.row
+    assert_equal 1, @space.col
   end
 
   def test_it_starts_blank
@@ -31,7 +36,7 @@ class SpaceTest < Minitest::Test
   end
 
   def test_it_can_hold_ship
-    
+    skip
   end
 
 
