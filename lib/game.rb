@@ -29,34 +29,49 @@ class Game
     @player_2.all_choices
   end
 
-  def ship_layout
+  def build_fleet(player)
     puts "please choose two ships:"
     puts "(s)ubmarine"
     puts "(d)estoyer"
     puts "(c)arrier"
     puts "(b)attleship"
+    puts "............"
     
-    ships = []
+    @armada = []
     2.times do |choice|
       choice = gets.chomp.to_s.upcase
       case choice
       when "S" 
-        ships << Ship.new("submarine")
+        @armada << Ship.new("submarine")
       when "D"
-        ships << Ship.new("destroyer")
+        @armada << Ship.new("destroyer")
       when "C"
-        ships << Ship.new("carrier")
+        @armada << Ship.new("carrier")
       when "B"
-        ships << Ship.new("battleship")
+        @armada << Ship.new("battleship")
       else
         puts "please enter a valid ship type"
       end
     end
+   
 
-    add_player_1_ships(ships)
+    puts "confirm?"
+    print "(y)es, or (c)hoose again >"
+    confirmation = gets.chomp.to_s.downcase
+      case confirmation
+      when "y"
+        player.ships = @armada
+      else
+      end
+      player.ships.each do |ship|
+        puts "Your fleet:"
+        puts ship.type
+      end
+  end
 
-    puts player_1.ships
-  
+  def ship_layout(player)
+    build_fleet(player)
+    binding.pry
   end
 
 
