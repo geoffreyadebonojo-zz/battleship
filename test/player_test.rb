@@ -1,8 +1,9 @@
 require 'pry'
 require 'minitest/autorun'
 require 'minitest/pride'
-require './lib/player.rb'
-require './lib/space.rb'
+require './lib/player'
+require './lib/space'
+require './lib/ship'
 
 class PlayerTest < Minitest::Test
 
@@ -49,6 +50,19 @@ class PlayerTest < Minitest::Test
     @player.choose(space_A4)
 
     assert_equal space_A4, @player.all_choices.last
+  end
+
+  def test_it_starts_without_ships
+    assert_equal [], @player.ships
+  end
+
+  def test_it_can_add_ships
+    submarine = Ship.new("submarine")
+    destroyer = Ship.new("destroyer")
+    @player.add_ship(submarine)
+    assert_equal [submarine], @player.ships
+    @player.add_ship(destroyer)
+    assert_equal [submarine, destroyer], @player.ships
   end
 
 end

@@ -1,6 +1,7 @@
 class Ship
   
-  def initialize
+  def initialize(type)
+    @type = type
   end
 
 end

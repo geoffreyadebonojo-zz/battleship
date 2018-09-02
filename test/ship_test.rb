@@ -5,7 +5,7 @@ require './lib/ship'
 
 class ShipTest < Minitest::Test
   def setup
-    @ship = Ship.new
+    @ship = Ship.new('sub')
   end
 
   def test_it_exists
