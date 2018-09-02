@@ -14,10 +14,12 @@ class Board
   end
 
   def set_space_as_occupied(space)
-    
-   
-
+    row_symbol = "row_#{space.coordinates[0]}".to_sym
+    target_space = @board[row_symbol][space.coordinates[1].to_i - 1]
+    target_space.occupied = true
   end
+
+ 
   
 
   def display

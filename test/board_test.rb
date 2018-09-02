@@ -37,6 +37,12 @@ class BoardTest < Minitest::Test
 		@board.load_spaces(@all_spaces)
 		refute_nil @board.board
 	end
+	
+	def test_it_can_set_spaces_as_occupied
+		@board.load_spaces(@all_spaces)
+		space = Space.new("C3")
+		@board.set_space_as_occupied(space)
 
+	end
 
 end

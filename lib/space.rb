@@ -1,6 +1,6 @@
 class Space
 
-  attr_accessor :status, :occupied
+  attr_accessor :status, :occupied, :coordinates
 
   def initialize(coordinates, status= "blank", occupied= false)
     @status = status
