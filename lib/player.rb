@@ -1,4 +1,3 @@
-# player
 class Player
   attr_reader :all_choices, :ships
 

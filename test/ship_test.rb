@@ -7,7 +7,7 @@ require './lib/board'
 
 class ShipTest < Minitest::Test
   def setup
-    @ship = Ship.new('sub')
+    @ship = Ship.new('submarine')
     @all_spaces = [
 		@space_A1 = Space.new("A1"),
 		@space_A2 = Space.new("A2"),
@@ -35,11 +35,12 @@ class ShipTest < Minitest::Test
     assert_instance_of Ship, @ship
   end
 
-  def test_it_can_set_head_space
+  def test_it_can_set_coordinates
     @board.load_spaces(@all_spaces)
     space = Space.new("D1")
-    @ship.set_piece(space)
-    assert_equal true, space.occupied
+    @ship.place(space)
+
+    assert_equal space, @ship.coordinates
   end
 
 end

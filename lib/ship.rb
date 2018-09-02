@@ -1,13 +1,13 @@
 class Ship
   
+  attr_reader :coordinates
+
   def initialize(type)
     @type = type
   end
 
-  def set_piece(head_space)
-    head_space.occupied = true
-    # @tail_space.occupied = true
-  end 
-    
+  def place(space)
+    @coordinates = space
+  end
 
 end
