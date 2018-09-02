@@ -6,7 +6,7 @@ require './lib/space'
 class SpaceTest < Minitest::Test
   
   def setup
-    @space = Space.new
+    @space = Space.new(0,0)
   end
 
   def test_it_exists
