@@ -4,6 +4,7 @@ require 'minitest/pride'
 require './lib/game'
 require './lib/player'
 require './lib/ship'
+require './lib/space'
 
 class GameTest < Minitest::Test
 
@@ -36,4 +37,12 @@ class GameTest < Minitest::Test
     assert_equal ships_2, @game.player_2.ships
   end
 
+  def test_it_can_make_player_guesses
+    guess_1 = Space.new("A2")
+    guess_2 = Space.new("B4")
+    guess_3 = Space.new("C1")
+
+    assert_equal [guess_1], @game.player_1_guesses(guess_1)
+    assert_equal [guess_1, guess_2], @game.player_1_guesses(guess_2)
+  end
 end

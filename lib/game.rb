@@ -19,6 +19,15 @@ class Game
     end
   end
 
+  def player_1_guesses(space)
+    @player_1.choose(space)
+    @player_1.all_choices
+  end
+
+  def player_2_guesses(space)
+    @player_2.choose(space)
+    @player_2.all_choices
+  end
 
 
 end
