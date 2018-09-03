@@ -58,10 +58,10 @@ class Board
 
     puts "==========="
     puts ". 1 2 3 4  "
-    puts "A#{a1}#{a2}#{a3}#{a4}" # use string
-    puts "B#{b1}#{b2}#{b3}#{b4}" # literals
-    puts "C#{c1}#{c2}#{c3}#{c4}" # to fill
-    puts "D#{d1}#{d2}#{d3}#{d4}" # out grid
+    puts "A #{a1} #{a2} #{a3} #{a4}" # use string
+    puts "B #{b1} #{b2} #{b3} #{b4}" # literals
+    puts "C #{c1} #{c2} #{c3} #{c4}" # to fill
+    puts "D #{d1} #{d2} #{d3} #{d4}" # out grid
     puts "==========="
   end
 

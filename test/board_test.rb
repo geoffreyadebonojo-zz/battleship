@@ -81,13 +81,40 @@ class BoardTest < Minitest::Test
 	end
 
 	def test_feature
-		@board.load_spaces(@all_spaces)
+		skip
+		@board.load_spaces
 		space = Space.new("C3")
 		@board.set_space_as_occupied(space)
-		other_space = Space.new("B1")
-		@board.check_for_hits(other_space)
 		
+		first_target_space = Space.new("B1")
+		@board.check_for_hits(first_target_space)
+		
+		next_target_space = Space.new("C3")
+		@board.check_for_hits(next_target_space)
+
 		binding.pry
+		# @board.display_board =>
+		#
+		# ===========
+		# . 1 2 3 4
+		# A
+		# B M
+		# C     H
+		# D
+		# ===========
+
+		# @board.check_for_hits(Space.new("C4"))
+		# => "M"
+		#
+		# @board.display_board =>
+		#
+		# ===========
+		# . 1 2 3 4
+		# A
+		# B M
+		# C     H M
+		# D
+		# ===========
 
 	end
 
