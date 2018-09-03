@@ -1,5 +1,5 @@
 class Board 
-  attr_accessor :board
+  attr_accessor :board, :all_spaces_array
 
   def initialize(all_spaces_array)
     @all_spaces_array = all_spaces_array

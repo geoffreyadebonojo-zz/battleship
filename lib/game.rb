@@ -22,12 +22,11 @@ class Game
 
   def player_1_ship_layout
     @player_1.build_fleet
-    binding.pry
+    
   end
 
   def player_2_ship_layout
     @player_2.auto_build_fleet
-    binding.pry
   end
 
 

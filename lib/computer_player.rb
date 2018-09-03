@@ -42,28 +42,27 @@ class ComputerPlayer
 
   def auto_build_fleet
       
-    @armada = []
     2.times do |choice|
       case rand(4)
       when 0 
-        @armada << Ship.new("submarine")
+        @ships << Ship.new("submarine")
       when 1
-        @armada << Ship.new("destroyer")
+        @ships << Ship.new("destroyer")
       when 2
-        @armada << Ship.new("carrier")
+        @ships << Ship.new("carrier")
       when 3
-        @armada << Ship.new("battleship")
+        @ships << Ship.new("battleship")
       else
         puts "please enter a valid ship type"
       end
     end
-
-    player.ships = @armada
     
-    player.ships.each do |ship|
-      puts "Computer's fleet:"
-      puts ship.type
+    puts "................."
+    puts "Computer's fleet:"
+    @ships.each do |ship|
+      puts "*****" # ship.type
     end
+    puts " "
   
   end
 

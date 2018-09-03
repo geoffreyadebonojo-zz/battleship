@@ -38,12 +38,17 @@ class Player
         puts "please enter a valid ship type"
       end
     end
-      
+    puts " "
+    puts "Your fleet:"
     @ships.each do |ship|
-      puts "Your fleet:"
       puts ship.type
     end
   end
+
+  def place_ships
+    ships[0].place_on(Space.new("A1"))
+  end
+
 end
 
 #human = Player.new

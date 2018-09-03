@@ -41,9 +41,22 @@ print ">"
 reply = gets.chomp.to_s.downcase
 if reply == "p"
   p "Show ship layout"
-  # game.ship_layout(computer)
   game.player_1_ship_layout
-  
+  game.player_2_ship_layout
+  p "Ready for war"
+  p "setting field..."
+  game.board.load_spaces
+  game.board.display_board
+  p "enter the two character location e.g.(A3, B4, D1)"
+  p "to place your #{game.player_1.ships.first.type}"
+  print ">"
+  placement = gets.chomp.to_s
+
+  game.board.all_spaces_array
+
+  # game.player_1.ships.first.place_on(Space.new(placement))
+
+  binding.pry
 elsif reply == "i"
   p "Show instructions"
   
