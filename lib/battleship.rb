@@ -6,10 +6,31 @@ require './lib/space'
 require './lib/ship'
 require './lib/board'
 
+all_spaces = [
+  space_A1 = Space.new("A1"),
+  space_A2 = Space.new("A2"),
+  space_A3 = Space.new("A3"),
+  space_A4 = Space.new("A4"),
 
+  space_B1 = Space.new("B1"),
+  space_B2 = Space.new("B2"),
+  space_B3 = Space.new("B3"),
+  space_B4 = Space.new("B4"),
+
+  space_C1 = Space.new("C1"),
+  space_C2 = Space.new("C2"),
+  space_C3 = Space.new("C3"),
+  space_C4 = Space.new("C4"),
+  
+  space_D1 = Space.new("D1"),
+  space_D2 = Space.new("D2"),
+  space_D3 = Space.new("D3"),
+  space_D4 = Space.new("D4")]
+
+board = Board.new(all_spaces)
 human = Player.new
-computer = Player.new
-game = Game.new(human, computer) 
+computer = ComputerPlayer.new
+game = Game.new(human, computer, board) 
 
 puts ""
 puts "Welcome to BATTLESHIP"
@@ -20,7 +41,9 @@ print ">"
 reply = gets.chomp.to_s.downcase
 if reply == "p"
   p "Show ship layout"
-  game.ship_layout(human)
+  # game.ship_layout(computer)
+  game.player_1_ship_layout
+  
 elsif reply == "i"
   p "Show instructions"
   

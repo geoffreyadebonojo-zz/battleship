@@ -38,9 +38,10 @@ class ShipTest < Minitest::Test
 	def test_it_can_set_coordinates
     @board.load_spaces
     space = Space.new("D1")
-    @ship.place(space)
+    @ship.place_on(space)
 
-    assert_equal space, @ship.coordinates
+		assert_equal space, @ship.coordinates
+		assert_equal true, @ship.coordinates.occupied
   end
 
 end

@@ -4,10 +4,12 @@ class Ship
 
   def initialize(type)
     @type = type
+    @coordinates = nil
   end
 
-  def place(space)
+  def place_on(space)
     @coordinates = space
+    space.occupied = true
   end
 
 end

@@ -29,6 +29,7 @@ class GameTest < Minitest::Test
       @space_D2 = Space.new("D2"),
       @space_D3 = Space.new("D3"),
       @space_D4 = Space.new("D4")]
+
     human = Player.new
     computer = Player.new
     board = Board.new(@all_spaces)
@@ -75,5 +76,6 @@ class GameTest < Minitest::Test
     @game.board.load_spaces
     assert_instance_of Board, @game.board
   end
+
   
 end

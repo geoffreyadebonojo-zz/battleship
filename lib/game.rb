@@ -4,22 +4,10 @@ class Game
 
   attr_reader :player_1, :player_2, :board
 
-  def initialize(player_1, player_2, board)
-    @player_1 = player_1
-    @player_2 = player_2
+  def initialize(human_player, computer_player, board)
+    @player_1 = human_player
+    @player_2 = computer_player
     @board = board
-  end
-
-  def add_player_1_ships(array_of_ships)
-    array_of_ships.each do |ship|
-      @player_1.add_ship(ship)
-    end
-  end
-
-  def add_player_2_ships(array_of_ships)
-    array_of_ships.each do |ship|
-      @player_2.add_ship(ship)
-    end
   end
 
   def player_1_guesses(space)
@@ -32,48 +20,13 @@ class Game
     @player_2.all_choices
   end
 
-  def build_fleet(player)
-    puts "please choose two ships:"
-    puts "(s)ubmarine"
-    puts "(d)estoyer"
-    puts "(c)arrier"
-    puts "(b)attleship"
-    puts "............"
-    
-    @armada = []
-    2.times do |choice|
-      choice = gets.chomp.to_s.upcase
-      case choice
-      when "S" 
-        @armada << Ship.new("submarine")
-      when "D"
-        @armada << Ship.new("destroyer")
-      when "C"
-        @armada << Ship.new("carrier")
-      when "B"
-        @armada << Ship.new("battleship")
-      else
-        puts "please enter a valid ship type"
-      end
-    end
-   
-
-    puts "confirm?"
-    print "(y)es, or (c)hoose again >"
-    confirmation = gets.chomp.to_s.downcase
-      case confirmation
-      when "y"
-        player.ships = @armada
-      else
-      end
-      player.ships.each do |ship|
-        puts "Your fleet:"
-        puts ship.type
-      end
+  def player_1_ship_layout
+    @player_1.build_fleet
+    binding.pry
   end
 
-  def ship_layout(player)
-    build_fleet(player)
+  def player_2_ship_layout
+    @player_2.auto_build_fleet
     binding.pry
   end
 

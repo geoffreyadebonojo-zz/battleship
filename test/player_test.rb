@@ -65,4 +65,6 @@ class PlayerTest < Minitest::Test
     assert_equal [submarine, destroyer], @player.ships
   end
 
+  
+
 end
