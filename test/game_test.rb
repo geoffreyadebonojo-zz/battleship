@@ -72,7 +72,7 @@ class GameTest < Minitest::Test
 
   def test_it_holds_board
     # assert_instance_of {}, @game.board
-    @game.board.load_spaces(@all_spaces)
+    @game.board.load_spaces
     assert_instance_of Board, @game.board
   end
   

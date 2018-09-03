@@ -39,7 +39,7 @@ class BoardTest < Minitest::Test
 	end
 	
 	def test_it_exists
-		assert_instance_of Board, @board
+		assert_instance_of Game, @game
 	end
 
 	def test_it_loads_spaces
