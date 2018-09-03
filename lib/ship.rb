@@ -12,4 +12,20 @@ class Ship
     space.occupied = true
   end
 
+  def health_points
+    case @type
+    when 'submarine'
+      1
+    when 'destroyer'
+      2
+    when 'carrier'
+      3
+    when 'battleship'
+      4
+    end
+  end
+
+  
+    
+
 end

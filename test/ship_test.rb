@@ -28,7 +28,8 @@ class ShipTest < Minitest::Test
 		@space_D2 = Space.new("D2"),
 		@space_D3 = Space.new("D3"),
 		@space_D4 = Space.new("D4")]
-    @board = Board.new(@all_spaces)
+		@board = Board.new(@all_spaces)
+		@board.load_spaces
   end
 
   def test_it_exists
@@ -36,12 +37,25 @@ class ShipTest < Minitest::Test
   end
 
 	def test_it_can_set_coordinates
-    @board.load_spaces
     space = Space.new("D1")
     @ship.place_on(space)
 
 		assert_equal space, @ship.coordinates
 		assert_equal true, @ship.coordinates.occupied
-  end
+	end
+	
+	def test_health_points_for_each_ship
+		submarine = Ship.new('submarine')
+		assert_equal 1, submarine.health_points
+	
+		destroyer = Ship.new('destroyer')
+		assert_equal 2, destroyer.health_points
+
+		carrier = Ship.new('carrier')
+		assert_equal 3, carrier.health_points
+
+		battleship = Ship.new('battleship')
+		assert_equal 4, battleship.health_points
+	end
 
 end
