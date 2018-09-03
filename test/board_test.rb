@@ -67,4 +67,15 @@ class BoardTest < Minitest::Test
 		assert_equal "miss", other_space.status
 	end
 
+	def test_feature
+		@board.load_spaces(@all_spaces)
+		space = Space.new("C3")
+		@board.set_space_as_occupied(space)
+		other_space = Space.new("B1")
+		@board.check_for_hits(other_space)
+		
+		binding.pry
+
+	end
+
 end
