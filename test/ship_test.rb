@@ -28,15 +28,15 @@ class ShipTest < Minitest::Test
 		@space_D2 = Space.new("D2"),
 		@space_D3 = Space.new("D3"),
 		@space_D4 = Space.new("D4")]
-    @board = Board.new
+    @board = Board.new(@all_spaces)
   end
 
   def test_it_exists
     assert_instance_of Ship, @ship
   end
 
-  def test_it_can_set_coordinates
-    @board.load_spaces(@all_spaces)
+	def test_it_can_set_coordinates
+    @board.load_spaces
     space = Space.new("D1")
     @ship.place(space)
 

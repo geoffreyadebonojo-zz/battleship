@@ -30,7 +30,7 @@ class ComputerPlayer
     random_col = (rand(4) + 1).to_s
     random_coordinates = random_row + random_col
     return @current_choice = Space.new(random_coordinates)
-  end
+  end # => Space.new(x,y)
 
   def already_chosen?(guess)
     if @all_choices.include?(guess)
@@ -39,6 +39,8 @@ class ComputerPlayer
       false
     end
   end
+
+  
 
 
 

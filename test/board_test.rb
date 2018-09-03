@@ -1,6 +1,10 @@
 require 'pry'
 require 'minitest/autorun'
 require 'minitest/pride'
+
+require './lib/player'
+require './lib/computer_player'
+require './lib/game'
 require './lib/board'
 require './lib/space'
 
@@ -26,20 +30,25 @@ class BoardTest < Minitest::Test
 		@space_D2 = Space.new("D2"),
 		@space_D3 = Space.new("D3"),
 		@space_D4 = Space.new("D4")]
-		@board = Board.new
+
+		human = Player.new
+    computer = Player.new
+    @board = Board.new(@all_spaces)
+    @game = Game.new(human, computer, @board)
+
 	end
 	
 	def test_it_exists
-		assert_instance_of Board, @board
+		assert_instance_of Game, @game
 	end
 
 	def test_it_loads_spaces
-		@board.load_spaces(@all_spaces)
+		@board.load_spaces
 		refute_nil @board.board
 	end
 	
 	def test_it_can_set_spaces_as_occupied
-		@board.load_spaces(@all_spaces)
+		@board.load_spaces
 		space = Space.new("C3")
 		row_symbol = "row_#{space.coordinates[0]}".to_sym
 		target_space = @board.board[row_symbol][space.coordinates[1].to_i - 1]
@@ -49,22 +58,27 @@ class BoardTest < Minitest::Test
 	end
 
 	def test_it_updates_hits
-		@board.load_spaces(@all_spaces)
+		@board.load_spaces
 		space = Space.new("C3")
 		@board.set_space_as_occupied(space)
 		@board.check_for_hits(space)
 
-		assert_equal "hit", space.status
+		assert_equal "H", @board.board[:row_C][2].status
 	end
 
 	def test_it_updates_misses
-		@board.load_spaces(@all_spaces)
+		@board.load_spaces
+		
 		space = Space.new("C3")
 		@board.set_space_as_occupied(space)
-		other_space = Space.new("B1")
-		@board.check_for_hits(other_space)
-		
-		assert_equal "miss", other_space.status
+
+		target_space = Space.new("B1")
+		@board.check_for_hits(target_space)
+		# binding.pry
+
+		assert_equal "M", @board.board[:row_B][0].status
+	
 	end
+
 
 end
