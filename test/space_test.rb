@@ -19,7 +19,7 @@ class SpaceTest < Minitest::Test
   end
 
   def test_it_starts_blank
-    assert_equal "blank", @space.status
+    assert_equal " ", @space.status
   end
 
   def test_it_can_get_hit

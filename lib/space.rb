@@ -2,7 +2,7 @@ class Space
 
   attr_accessor :status, :occupied, :coordinates
 
-  def initialize(coordinates, status= "blank", occupied= false)
+  def initialize(coordinates, status= " ", occupied= false)
     @status = status
     @occupied = occupied
     @coordinates = coordinates
@@ -11,9 +11,9 @@ class Space
   def check_hit
     " "
     if @occupied == true
-      "H"
+      @status= "H"
     elsif @occupied == false
-      "M"
+      @status= "M"
     end
   end
 
