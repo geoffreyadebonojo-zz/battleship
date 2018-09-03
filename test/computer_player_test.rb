@@ -36,4 +36,7 @@ class ComputerPlayerTest < Minitest::Test
     assert_equal false, @computer.already_chosen?(space_2)
   end
 
+  
+
+
 end
