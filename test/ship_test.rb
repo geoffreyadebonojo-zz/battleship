@@ -36,13 +36,26 @@ class ShipTest < Minitest::Test
     assert_instance_of Ship, @ship
   end
 
-	def test_it_can_set_coordinates
-    space = Space.new("D1")
-    @ship.place_on(space)
 
-		assert_equal space, @ship.coordinates
-		assert_equal true, @ship.coordinates.occupied
+	def test_it_can_set_head_coordinates
+		space_D1 = Space.new("D1")
+		space_D2 = Space.new("D2")
+    @ship.place_on(space_D1, space_D2)
+
+		assert_equal space_D1, @ship.head_coordinates
+		assert_equal true, @ship.head_coordinates.occupied
 	end
+
+	def test_it_can_set_tail_coordinates
+		space_D1 = Space.new("D1")
+		space_D2 = Space.new("D2")
+    @ship.place_on(space_D1, space_D2)
+
+		assert_equal space_D2, @ship.tail_coordinates
+		assert_equal true, @ship.tail_coordinates.occupied
+	end
+
+
 	
 	def test_health_points_for_each_ship
 		submarine = Ship.new('submarine')
