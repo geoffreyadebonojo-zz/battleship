@@ -58,7 +58,7 @@ class Space
       @north = Space.new(convert(row-1, col))
       @neighbors << @north
     end
-    if row+1 <= 4
+    if row+1 <= 3
       @south = Space.new(convert(row+1, col))
       @neighbors << @south
     end
@@ -66,11 +66,11 @@ class Space
       @east = Space.new(convert(row, col-1))
       @neighbors << @east
     end
-    if col+1 <= 4
+    if col+1 <= 3
       @west = Space.new(convert(row, col+1))
       @neighbors << @west
     end
-    
+    @neighbors
   end
 
 end

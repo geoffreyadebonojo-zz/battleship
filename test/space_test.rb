@@ -54,4 +54,41 @@ class SpaceTest < Minitest::Test
     assert_equal expected, actual 
   end
 
+  def test_it_knows_if_its_a_wall_side
+    @space_A1 = Space.new("A1")
+    @space_A2 = Space.new("A2")
+    @space_A3 = Space.new("A3")
+    @space_B2 = Space.new("B2")
+
+    expected = [@space_B2, @space_A1, @space_A3].map do |space|
+      space.coordinates.to_sym
+    end
+
+    actual = @space_A2.find_neighbors.map do |space|
+      space.coordinates.to_sym
+    end
+    
+    assert_equal expected, actual
+  end
+
+  def test_it_knows_if_its_a_corner
+    @space_D3 = Space.new("D3")
+    @space_D4 = Space.new("D4")
+    @space_C4 = Space.new("C4")
+
+    expected = [@space_C4, @space_D3].map do |space|
+      space.coordinates.to_sym
+    end
+
+    actual = @space_D4.find_neighbors.map do |space|
+      space.coordinates.to_sym
+    end
+    
+    assert_equal expected, actual
+  end
+
+
+
+
+
 end
