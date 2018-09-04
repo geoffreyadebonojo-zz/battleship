@@ -3,13 +3,14 @@ class Space
   attr_accessor :status, 
                 :occupied, 
                 :coordinates # "B3"
+                :neighbors
                 
 
   def initialize(coordinates, status= " ", occupied= false)
     @status = status
     @occupied = occupied
     @coordinates = coordinates
-    
+    @neighbors = []
   end
 
   def check_hit
@@ -53,22 +54,21 @@ class Space
   end
 
   def find_neighbors
-    @neighbors = []
     if row-1 >= 0 
-      @north = Space.new(convert(row-1, col))
-      @neighbors << @north
+      north = Space.new(convert(row-1, col))
+      @neighbors << north
     end
     if row+1 <= 3
-      @south = Space.new(convert(row+1, col))
-      @neighbors << @south
+      south = Space.new(convert(row+1, col))
+      @neighbors << south
     end
     if col-1 >= 0
-      @east = Space.new(convert(row, col-1))
-      @neighbors << @east
+      east = Space.new(convert(row, col-1))
+      @neighbors << east
     end
     if col+1 <= 3
-      @west = Space.new(convert(row, col+1))
-      @neighbors << @west
+      west = Space.new(convert(row, col+1))
+      @neighbors << west
     end
     @neighbors
   end

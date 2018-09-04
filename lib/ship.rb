@@ -16,7 +16,9 @@ class Ship
 
   def possible_tails(head)
     
-    valid_spaces = []
+    valid_spaces = head.find_neighbors.map do |space|
+      space.coordinates
+    end
     
     case head.coordinates[0] 
     when "A"
@@ -30,6 +32,7 @@ class Ship
     end
     row = (head.coordinates[1]).to_i - 1
     
+    return valid_spaces
   end
 
   def health_points

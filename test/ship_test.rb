@@ -74,7 +74,7 @@ class ShipTest < Minitest::Test
 	end
 
 	def test_it_can_choose_tails
-		# skip
+		skip
 		head = Space.new("B3")
 		@ship.place_on(head)
 		@ship.possible_tails(head)

@@ -47,10 +47,8 @@ if reply == "p"
   p "setting field..."
   game.board.load_spaces
   game.board.display_board
-  p "enter the two character location e.g.(A3, B4, D1)"
-  p "to place your #{game.player_1.ships.first.type}"
-  print ">"
-  placement = gets.chomp.to_s
+
+  game.player_1.place_ships
 
   game.board.all_spaces_array
 
