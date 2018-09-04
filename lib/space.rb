@@ -3,12 +3,13 @@ class Space
   attr_accessor :status, 
                 :occupied, 
                 :coordinates # "B3"
-
+                
 
   def initialize(coordinates, status= " ", occupied= false)
     @status = status
     @occupied = occupied
     @coordinates = coordinates
+    
   end
 
   def check_hit
@@ -37,7 +38,7 @@ class Space
     @coordinates[1].to_i - 1
   end
 
-  def convert_from_xy_coordinates(x,y)
+  def convert(x,y)
                                 #(1,2)
     case x
     when 0
@@ -52,23 +53,24 @@ class Space
   end
 
   def find_neighbors
-    binding.pry
-    #col = B => 1
-    #row = 3 => 2
-                    
-    #(col -1)(row) => 0,2
-                    # 1,2
-    #(col +1)(row) => 2,2
-
-                   
-    #(col)(row -1) => 1,1 
-                    # 1,2
-    #(col)(row +1) => 1,3
-
-    #less than zero?
-    #same as self?
-
-
+    @neighbors = []
+    if row-1 >= 0 
+      @north = Space.new(convert(row-1, col))
+      @neighbors << @north
+    end
+    if row+1 <= 4
+      @south = Space.new(convert(row+1, col))
+      @neighbors << @south
+    end
+    if col-1 >= 0
+      @east = Space.new(convert(row, col-1))
+      @neighbors << @east
+    end
+    if col+1 <= 4
+      @west = Space.new(convert(row, col+1))
+      @neighbors << @west
+    end
+    
   end
 
 end
