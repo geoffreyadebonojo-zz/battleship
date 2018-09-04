@@ -48,9 +48,9 @@ if reply == "p"
   game.board.load_spaces
   game.board.display_board
 
-  game.player_1.place_ships
+  game.player_1.place_ship
 
-  game.board.all_spaces_array
+  # game.board.all_spaces_array
 
   # game.player_1.ships.first.place_on(Space.new(placement))
 

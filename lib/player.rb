@@ -45,12 +45,14 @@ class Player
     end
   end
 
-  def place_ships
+  def place_ship
     p "enter the two character location e.g.(A3, B4, D1)"
     p "to place your #{@ships.first.type}"
     print ">"
-    @ships[0].place_on(Space.new("A1"))
+    head = gets.chomp.to_s
+    @ships[0].place_on(Space.new(head))
     puts "Set tail of ship:"
+    valid_spaces = @ships[0].possible_tails(@ships[0].head_coordinates)
     print valid_spaces
     puts ""
     print ">"
@@ -60,7 +62,7 @@ class Player
     else 
       puts "????"
     end
-    # binding.pry
+  
   end
 end
 

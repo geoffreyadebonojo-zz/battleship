@@ -56,13 +56,31 @@ class PlayerTest < Minitest::Test
     assert_equal [], @player.ships
   end
 
-  def test_it_can_add_ships
+  def test_it_can_add_ships_to_fleet
     submarine = Ship.new("submarine")
     destroyer = Ship.new("destroyer")
     @player.add_ship(submarine)
     assert_equal [submarine], @player.ships
     @player.add_ship(destroyer)
     assert_equal [submarine, destroyer], @player.ships
+  end
+
+  def test_it_can_place_ships_on_board
+    skip
+    submarine = Ship.new("submarine")
+    destroyer = Ship.new("destroyer")
+    @player.add_ship(submarine)
+    @player.add_ship(destroyer)
+    
+    # binding.pry
+    # @player.place_ships
+    # => "enter the two character location e.g.(A3, B4, D1)"
+    # "to place your submarine"
+    # >A2
+    # Set tail of ship:
+    # ["B2", "A1", "A3"]
+    # >A1
+    # => A1
   end
 
   
