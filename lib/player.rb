@@ -47,24 +47,30 @@ class Player
     end
   end
 
+  def select_space_on_board(coordinates)
+    chosen_space = @board.all_spaces_array.select do |space|
+      space.coordinates == coordinates
+    end 
+  end
+
+
   def place_ship
     p "enter the two character location e.g.(A3, B4, D1)"
     p "to place your #{@ships.first.type}"
     print ">"
-    head = gets.chomp.to_s
-    @ships[0].place_on(Space.new(head))
+    @head = gets.chomp.to_s
+    select_space_on_board(reply)
+    # binding.pry
+    @ships[0].place_on("A2")
     puts "Set tail of ship:"
     valid_spaces = @ships[0].possible_tails(@ships[0].head_coordinates)
     print valid_spaces
     puts ""
     print ">"
     reply = gets.chomp.to_s
-    if valid_spaces.include?(reply)
-      @ships[0].tail_coordinates = reply
-    else 
-      puts "????"
-    end
-  
+    @ships[0].place_tail("A3")
+    
+    # binding.pry
   end
 end
 

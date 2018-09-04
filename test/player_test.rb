@@ -106,5 +106,10 @@ class PlayerTest < Minitest::Test
   end
 
   
+  def test_it_can_choose_space_from_board
+    expected = @player.board.all_spaces_array[2]
+    actual = @player.select_space_on_board("A3")
+    assert_equal [expected], actual
+  end
 
 end
