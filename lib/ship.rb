@@ -29,19 +29,6 @@ class Ship
       col = 3
     end
     row = (head.coordinates[1]).to_i - 1
-
-
-    binding.pry
-    #col = B => 1
-    #row = 3 => 2
-                    # 1,2
-    #(col -1)(row) => 0,2
-    #(col +1)(row) => 2,2
-
-                    # 1,2
-    #(col)(row -1) => 1,1 
-    #(col)(row +1) => 1,3
-
     
   end
 

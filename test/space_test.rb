@@ -36,4 +36,9 @@ class SpaceTest < Minitest::Test
     assert_equal false, @space.occupied
   end
 
+  def test_it_can_find_neighbors
+    @space = Space.new("B3")
+    @space.find_neighbors
+  end
+
 end
