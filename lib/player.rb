@@ -1,8 +1,10 @@
 class Player
-  attr_reader   :all_choices
+  attr_reader   :all_choices,
+                :board
   attr_accessor :ships
 
-  def initialize
+  def initialize(board)
+    @board = board
     @all_choices = []
     @ships = []
   end

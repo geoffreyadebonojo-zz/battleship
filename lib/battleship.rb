@@ -27,10 +27,11 @@ all_spaces = [
   space_D3 = Space.new("D3"),
   space_D4 = Space.new("D4")]
 
-board = Board.new(all_spaces)
-human = Player.new
-computer = ComputerPlayer.new
-game = Game.new(human, computer, board) 
+human_board = Board.new(all_spaces)
+computer_board = Board.new(all_spaces)
+human = Player.new(human_board)
+computer = ComputerPlayer.new(computer_board)
+game = Game.new(human, computer) 
 
 puts ""
 puts "Welcome to BATTLESHIP"

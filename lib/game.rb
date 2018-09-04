@@ -2,12 +2,11 @@ require './lib/board'
 
 class Game
 
-  attr_reader :player_1, :player_2, :board
+  attr_reader :player_1, :player_2
 
-  def initialize(human_player, computer_player, board)
+  def initialize(human_player, computer_player)
     @player_1 = human_player
     @player_2 = computer_player
-    @board = board
   end
 
   def player_1_guesses(space)

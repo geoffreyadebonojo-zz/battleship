@@ -31,10 +31,14 @@ class BoardTest < Minitest::Test
 		@space_D3 = Space.new("D3"),
 		@space_D4 = Space.new("D4")]
 
-		human = Player.new
-    computer = Player.new
-    @board = Board.new(@all_spaces)
-    @game = Game.new(human, computer, @board)
+
+		human_board = Board.new(@all_spaces)
+		computer_board = Board.new(@all_spaces)
+
+		@human = Player.new(human_board)
+    computer = Player.new(computer_board)
+
+    @game = Game.new(@human, computer)
 
 	end
 	
@@ -43,54 +47,54 @@ class BoardTest < Minitest::Test
 	end
 
 	def test_it_loads_spaces
-		@board.load_spaces
-		refute_nil @board.board
+		@human.board.load_spaces
+		refute_nil @human.board
 	end
 	
 	def test_it_can_set_spaces_as_occupied
-		@board.load_spaces
+		@human.board.load_spaces
 		space = Space.new("C3")
 		row_symbol = "row_#{space.coordinates[0]}".to_sym
-		target_space = @board.board[row_symbol][space.coordinates[1].to_i - 1]
+		target_space = @human.board[row_symbol][space.coordinates[1].to_i - 1]
 
-		@board.set_space_as_occupied(space)
+		@human.board.set_space_as_occupied(space)
 		assert_equal true, target_space.occupied
 	end
 
 	def test_it_updates_hits
-		@board.load_spaces
+		@human.board.load_spaces
 		space = Space.new("C3")
-		@board.set_space_as_occupied(space)
-		@board.check_for_hits(space)
+		@human.board.set_space_as_occupied(space)
+		@human.board.check_for_hits(space)
 
-		assert_equal "H", @board.board[:row_C][2].status
+		assert_equal "H", @human.board[:row_C][2].status
 	end
 
 	def test_it_updates_misses
-		@board.load_spaces
+		@human.board.load_spaces
 		
 		space = Space.new("C3")
-		@board.set_space_as_occupied(space)
+		@human.board.set_space_as_occupied(space)
 
 		target_space = Space.new("B1")
-		@board.check_for_hits(target_space)
+		@human.board.check_for_hits(target_space)
 		# binding.pry
 
-		assert_equal "M", @board.board[:row_B][0].status
+		assert_equal "M", @human.board[:row_B][0].status
 	
 	end
 
 	def test_feature
 		skip
-		@board.load_spaces
+		@human.board.load_spaces
 		space = Space.new("C3")
-		@board.set_space_as_occupied(space)
+		@human.board.set_space_as_occupied(space)
 		
 		first_target_space = Space.new("B1")
-		@board.check_for_hits(first_target_space)
+		@human.board.check_for_hits(first_target_space)
 		
 		next_target_space = Space.new("C3")
-		@board.check_for_hits(next_target_space)
+		@human.board.check_for_hits(next_target_space)
 
 		binding.pry
 		# @board.display_board =>

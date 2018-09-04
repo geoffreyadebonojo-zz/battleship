@@ -30,10 +30,14 @@ class GameTest < Minitest::Test
       @space_D3 = Space.new("D3"),
       @space_D4 = Space.new("D4")]
 
-    human = Player.new
-    computer = Player.new
-    board = Board.new(@all_spaces)
-    @game = Game.new(human, computer, board)
+
+    human_board = Board.new(@all_spaces)
+    computer_board = Board.new(@all_spaces)
+
+    @human = Player.new(human_board)
+    @computer = Player.new(computer_board)
+ 
+    @game = Game.new(@human, @computer)
    
   end
 
@@ -57,8 +61,8 @@ class GameTest < Minitest::Test
 
   def test_it_holds_board
     # assert_instance_of {}, @game.board
-    @game.board.load_spaces
-    assert_instance_of Board, @game.board
+    @human.board.load_spaces
+    assert_instance_of Board, @human.board
   end
 
   
