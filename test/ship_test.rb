@@ -38,6 +38,7 @@ class ShipTest < Minitest::Test
 
 
 	def test_it_can_set_head_coordinates
+		skip
 		space_D1 = Space.new("D1")
 		space_D2 = Space.new("D2")
     @ship.place_on(space_D1, space_D2)
@@ -47,6 +48,7 @@ class ShipTest < Minitest::Test
 	end
 
 	def test_it_can_set_tail_coordinates
+		skip
 		space_D1 = Space.new("D1")
 		space_D2 = Space.new("D2")
     @ship.place_on(space_D1, space_D2)
@@ -70,5 +72,15 @@ class ShipTest < Minitest::Test
 		battleship = Ship.new('battleship')
 		assert_equal 4, battleship.health_points
 	end
+
+	def test_it_can_choose_tails
+		# skip
+		head = Space.new("B3")
+		@ship.place_on(head)
+		@ship.possible_tails(head)
+		# binding.pry
+
+	end
+
 
 end

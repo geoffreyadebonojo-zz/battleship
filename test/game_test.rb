@@ -46,8 +46,6 @@ class GameTest < Minitest::Test
     assert_instance_of Player, @game.player_2
   end
 
-  
-
   def test_it_can_make_player_guesses
     guess_1 = Space.new("A2")
     guess_2 = Space.new("B4")
