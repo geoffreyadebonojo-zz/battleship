@@ -22,4 +22,8 @@ class ComputerPlayerTest < Minitest::Test
     assert_instance_of Board, @computer.board
   end
 
+  def test_it_selects_random
+    assert_instance_of Space, @computer.select_space
+  end
+
 end

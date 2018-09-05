@@ -44,17 +44,40 @@ class Player
     end
     c = index[1].to_s
     @board.hash[(r+c).to_sym]
-  end
+  end # => returns space object
 
-                #Space
+            
+               #Space
   def adjacents(target)
 
     r = to_index(target)[0]
     c = to_index(target)[1]
 
-    binding.pry
+    center = [r,c]
 
+    west = [r, c-1]
+    east = [r, c+1]
+    north = [r-1, c]
+    south = [r+1, c]
 
+    neighbors =[]
+    if r > 0
+      neighbors << to_space(north)
+    end
+
+    if r < 3
+      neighbors << to_space(south)
+    end
+
+    if c > 0
+      neighbors << to_space(west)
+    end
+
+    if c < 3
+      neighbors << to_space(east)
+    end
+    
+    return neighbors.compact
   end # return array of cells
 
 end

@@ -50,9 +50,17 @@ class PlayerTest < Minitest::Test
   end
 
   def test_it_can_choose_adjacents
-    skip
+    # skip
     b3 = @player.board.hash[:B3]
-    @player.adjacents(b3)
+    
+    a3 = @player.board.hash[:A3]
+    c3 = @player.board.hash[:C3]
+    b2 = @player.board.hash[:B2]
+    b4 = @player.board.hash[:B4]
+
+    expected = [a3, c3, b2]
+
+    assert_equal expected, @player.adjacents(b3)
   end
 
 end
