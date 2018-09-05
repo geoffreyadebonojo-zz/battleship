@@ -1,16 +1,15 @@
 class Space
 
-  attr_accessor :status, 
-                :occupied, 
-                :coordinates # "B3"
+  attr_accessor :status,
+                :occupied,
+                :coordinates, # "B3"
                 :neighbors
-                
+
 
   def initialize(coordinates, status= " ", occupied= false)
     @status = status
     @occupied = occupied
     @coordinates = coordinates
-    @neighbors = []
   end
 
   def check_hit
@@ -54,7 +53,8 @@ class Space
   end
 
   def find_neighbors
-    if row-1 >= 0 
+    @neighbors = []
+    if row-1 >= 0
       north = Space.new(convert(row-1, col))
       @neighbors << north
     end
