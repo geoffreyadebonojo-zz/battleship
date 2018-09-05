@@ -90,6 +90,7 @@ class PlayerTest < Minitest::Test
 
 
   def test_board_setup_overmethod
+    skip
     binding.pry
     @player.board_setup
 
