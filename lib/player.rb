@@ -29,7 +29,7 @@ class Player
     r = letters.index(space.row)
     c = space.column.to_i
     return [r, c]
-  end
+  end # returns index positions [r, c]
 
   def to_space(index)
     case index[0]

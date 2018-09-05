@@ -49,18 +49,42 @@ class PlayerTest < Minitest::Test
     assert_equal target, @player.to_space(target_indeces)
   end
 
-  def test_it_can_choose_adjacents
+  def test_it_can_choose_adjacents_on_wall
     # skip
     b3 = @player.board.hash[:B3]
     
     a3 = @player.board.hash[:A3]
     c3 = @player.board.hash[:C3]
     b2 = @player.board.hash[:B2]
-    b4 = @player.board.hash[:B4]
 
     expected = [a3, c3, b2]
 
     assert_equal expected, @player.adjacents(b3)
   end
 
+  def test_it_can_choose_adjacents_in_open
+    # skip
+    b2 = @player.board.hash[:B2]
+    
+    a2 = @player.board.hash[:A2]
+    c2 = @player.board.hash[:C2]
+    b1 = @player.board.hash[:B1]
+    b3 = @player.board.hash[:B3]
+
+    expected = [a2, c2, b1, b3]
+
+    assert_equal expected, @player.adjacents(b2)
+  end
+
+  def test_it_can_choose_adjacents_in_corner
+    # skip
+    a3 = @player.board.hash[:A3]
+  
+    a2 = @player.board.hash[:A2]
+    b3 = @player.board.hash[:B3]
+
+    expected = [b3, a2]
+
+    assert_equal expected, @player.adjacents(a3)
+  end
 end
