@@ -7,7 +7,7 @@ class Player
   end
 
               #A2        #A3
-  def ship(space_one, space_two)
+  def ship(space_one, space_two, space_three= nil)
 
     one = space_one.to_sym
     two = space_two.to_sym
@@ -16,12 +16,10 @@ class Player
     @board.hash[two].occupied = true
 
   end
-
               #A2
   def shoot(space)
     @shots << space.to_sym
   end
-
 
   def to_index(space)
     baseline = @board.hash[:A0]
@@ -46,8 +44,6 @@ class Player
     @board.hash[(r+c).to_sym]
   end # => returns space object
 
-            
-               #Space
   def adjacents(target)
 
     r = to_index(target)[0]
@@ -79,5 +75,25 @@ class Player
     
     return neighbors.compact
   end # return array of cells
+
+  def board_setup
+
+    puts "place ship HEAD on space (A0..D3)"
+    print ">"
+    r1 = gets.chomp.to_s
+    
+    puts "place ship TAIL"
+    head = @board.hash[r1.to_sym]
+    adjacents(head).each do |space|
+      puts space.name
+    end
+    print ">"
+    r2 = gets.chomp.to_s
+
+    ship(r1, r2)
+
+    puts "ship placed"
+    
+  end
 
 end

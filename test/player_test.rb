@@ -87,4 +87,11 @@ class PlayerTest < Minitest::Test
 
     assert_equal expected, @player.adjacents(a3)
   end
+
+
+  def test_board_setup_overmethod
+    binding.pry
+    @player.board_setup
+
+  end
 end
