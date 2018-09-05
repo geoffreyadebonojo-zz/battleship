@@ -41,4 +41,18 @@ class PlayerTest < Minitest::Test
     assert_equal [:A1, :A2], @player.shots
   end
 
+  def test_it_can_convert_between_formats
+    target = @player.board.hash[:B3]
+    assert_equal [1, 3], @player.to_index(target)
+    
+    target_indeces = @player.to_index(target)
+    assert_equal target, @player.to_space(target_indeces)
+  end
+
+  def test_it_can_choose_adjacents
+    skip
+    b3 = @player.board.hash[:B3]
+    @player.adjacents(b3)
+  end
+
 end
