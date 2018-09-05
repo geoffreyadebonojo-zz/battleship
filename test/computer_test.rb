@@ -18,4 +18,8 @@ class ComputerPlayerTest < Minitest::Test
     assert_instance_of ComputerPlayer, @computer
   end
 
+  def test_attributes
+    assert_instance_of Board, @computer.board
+  end
+
 end
