@@ -1,32 +1,16 @@
 require 'pry'
-require './lib/player'
-require './lib/computer_player'
 require './lib/game'
-require './lib/space'
-require './lib/ship'
+require './lib/player'
 require './lib/board'
-
-
-human = Player.new
-computer = Player.new
-game = Game.new(human, computer) 
-
-puts ""
-puts "Welcome to BATTLESHIP"
-puts ""
-puts "Would you like to (p)lay, read the (i)nstructions, or (q)uit?"
-print ">"
-
-reply = gets.chomp.to_s.downcase
-if reply == "p"
-  p "Show ship layout"
-  game.ship_layout(human)
-elsif reply == "i"
-  p "Show instructions"
-  
-elsif reply == "q"
-end
+require './lib/space'
 
 
 
 
+board_1 = Board.new
+board_2 = Board.new
+player_1 = Player.new(board_1)
+player_2 = Player.new(board_2)
+game = Game.new(player_1, player_2)
+
+binding.pry

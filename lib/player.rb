@@ -1,20 +1,25 @@
 class Player
-  attr_reader   :all_choices
-  attr_accessor :ships
+  attr_reader :board, :shots
 
-  def initialize
-    @all_choices = []
-    @ships = []
+  def initialize(board)
+    @board = board
+    @shots = []
   end
 
-  def choose(chosen_space)
-    @all_choices << chosen_space
+              #A2        #A3
+  def ship(space_one, space_two)
+
+    one = space_one.to_sym
+    two = space_two.to_sym
+
+    @board.hash[one].occupied = true
+    @board.hash[two].occupied = true
+
   end
 
-  def add_ship(ship)
-    @ships << ship
+              #A2
+  def shoot(space)
+    @shots << space.to_sym
   end
+
 end
-
-#human = Player.new
-#computer = Player.new

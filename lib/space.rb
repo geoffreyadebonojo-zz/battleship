@@ -1,37 +1,14 @@
 class Space
+  attr_reader :name, :row, :column
+  attr_accessor :occupied, :status
 
-  attr_accessor :status, :occupied, :coordinates
-
-  def initialize(coordinates, status= " ", occupied= false)
-    @status = status
-    @occupied = occupied
-    @coordinates = coordinates
+  def initialize(name)
+    @name = name
+    @row = name.to_s[0]
+    @column = name.to_s[1]
+    @occupied = false
+    @status = "~" # blank " "
   end
 
-  def check_hit
-    " "
-    if @occupied == true
-      @status= "H"
-    elsif @occupied == false
-      @status= "M"
-    end
-  end
-
-  def row
-    case @coordinates[0]
-    when "A"
-      0
-    when "B"
-      1
-    when "C"
-      2
-    when "D"
-      3
-    end
-  end
-
-  def col
-    @coordinates[1].to_i - 1
-  end
 
 end
