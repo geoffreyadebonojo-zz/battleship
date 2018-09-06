@@ -1,10 +1,10 @@
 require 'pry'
+require 'date'
 require './lib/game'
 require './lib/player'
 require './lib/board'
 require './lib/space'
 require './lib/computer'
-
 
 
 board_1 = Board.new
@@ -17,6 +17,9 @@ game = Game.new(player_1, player_2)
 
 def boards_setup(game)
   game.player_2.board_setup
+  p "It's time to place your ship."
+  p "..."
+  p "you only get one"
   game.player_1.board_setup
 end
 
@@ -190,10 +193,8 @@ def shooting_gallery(game, turns)
     player_1_sonar(game)
     player_1_check_hits(game)
   end
-end
+end # dev tool for mechanics
 
-# dev tool for mechanics
-# shooting_gallery(game, 10)
 
 def run(game, turns)
   boards_setup(game)
@@ -204,12 +205,36 @@ def run(game, turns)
   turns.times do 
     player_1_check_hits(game)
     player_2_check_hits(game)
-    display_player_2_target_field(game)
-    puts "*"*10
     display_player_1_target_field(game)
+    puts "*"*10
+    display_player_2_target_field(game)
   end
 end
 
-run(game, 4)
-# binding.pry
+
+puts ""
+puts "Welcome to BATTLESHIP"
+puts ""
+puts "Would you like to (p)lay, read the (i)nstructions, or (q)uit?"
+print "> "
+
+reply = gets.chomp.to_s.downcase
+if reply == "p"
+  puts "How many turns?"
+  print "> "
+  turns = gets.chomp.to_i
+  puts "Ship layout phase"
+
+  run(game, turns)
+  
+elsif reply == "i"
+  puts "What, you've never played battleship before??"
+  puts "What, do you live under a rock or something??"
+  
+elsif reply == "q"
+  puts "A wise decision, tangling with the likes of me"
+  puts "Maybe we can meet again NEXT #{Date.today.strftime("%A")}???"
+end
+
+
 
