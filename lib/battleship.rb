@@ -22,34 +22,34 @@ end
 
 def display_target_field(game)
   puts "PLAYER 1 BOARD:"
-  
-  a0 = game.player_2.hash[:A0].status
-  a1 = game.player_2.hash[:A1].status
-  a2 = game.player_2.hash[:A2].status
-  a3 = game.player_2.hash[:A3].status
 
-  b0 = game.player_2.hash[:B0].status
-  b1 = game.player_2.hash[:B1].status
-  b2 = game.player_2.hash[:B2].status
-  b3 = game.player_2.hash[:B3].status
+  a0 = game.player_2.board.hash[:A0].status
+  a1 = game.player_2.board.hash[:A1].status
+  a2 = game.player_2.board.hash[:A2].status
+  a3 = game.player_2.board.hash[:A3].status
 
-  c0 = game.player_2.hash[:C0].status
-  c1 = game.player_2.hash[:C1].status
-  c2 = game.player_2.hash[:C2].status
-  c3 = game.player_2.hash[:C3].status
+  b0 = game.player_2.board.hash[:B0].status
+  b1 = game.player_2.board.hash[:B1].status
+  b2 = game.player_2.board.hash[:B2].status
+  b3 = game.player_2.board.hash[:B3].status
 
-  d0 = game.player_2.hash[:D0].status
-  d1 = game.player_2.hash[:D1].status
-  d2 = game.player_2.hash[:D2].status
-  d3 = game.player_2.hash[:D3].status
+  c0 = game.player_2.board.hash[:C0].status
+  c1 = game.player_2.board.hash[:C1].status
+  c2 = game.player_2.board.hash[:C2].status
+  c3 = game.player_2.board.hash[:C3].status
+
+  d0 = game.player_2.board.hash[:D0].status
+  d1 = game.player_2.board.hash[:D1].status
+  d2 = game.player_2.board.hash[:D2].status
+  d3 = game.player_2.board.hash[:D3].status
   
   puts ". A B C D"
-  puts ".........."
-  puts "#{a1}#{a2}#{a3}#{a4}"
-  puts "#{b1}#{b2}#{b3}#{b4}"
-  puts "#{b1}#{b2}#{b3}#{b4}"
-  puts "#{b1}#{b2}#{b3}#{b4}"
-  puts ".........."
+  puts "  ......."
+  puts "  #{a0} #{a1} #{a2} #{a3}"
+  puts "  #{b0} #{b1} #{b2} #{b3}"
+  puts "  #{c0} #{c1} #{c2} #{c3}"
+  puts "  #{d0} #{d1} #{d2} #{d3}"
+  puts "  ......."
 
 end
 
