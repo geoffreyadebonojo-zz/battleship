@@ -79,9 +79,10 @@ class Player
     
     puts "place ship TAIL"
     head = @board.hash[r1]
-    adjacents(head).each do |space|
-      puts space.name
+    options = adjacents(head).map do |space|
+      space.name
     end
+    p options
     print ">"
     r2 = gets.chomp.to_sym
     tail = @board.hash[r2]

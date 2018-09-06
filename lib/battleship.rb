@@ -10,8 +10,7 @@ require './lib/computer'
 board_1 = Board.new
 board_2 = Board.new
 player_1 = Player.new(board_1)
-# player_2 = Computer.new(board_2)
-player_2 = Player.new(board_2)
+player_2 = Computer.new(board_2)
 game = Game.new(player_1, player_2)
 
 
@@ -21,7 +20,7 @@ def boards_setup(game)
   game.player_1.board_setup
 end
 
-def display_target_field(game)
+def display_player_1_target_field(game)
   puts "PLAYER 1 BOARD:"
 
   a0 = game.player_2.board.hash[:A0].status
@@ -44,20 +43,19 @@ def display_target_field(game)
   d2 = game.player_2.board.hash[:D2].status
   d3 = game.player_2.board.hash[:D3].status
   
-  puts ". A B C D"
-  puts "  ......."
-  puts "  #{a0} #{a1} #{a2} #{a3}"
-  puts "  #{b0} #{b1} #{b2} #{b3}"
-  puts "  #{c0} #{c1} #{c2} #{c3}"
-  puts "  #{d0} #{d1} #{d2} #{d3}"
-  puts "  ......."
+  puts ".  A B C D |"
+  puts "0  #{a0} #{b0} #{c0} #{d0} |"
+  puts "1  #{a1} #{b1} #{c1} #{d1} |"
+  puts "2  #{a2} #{b2} #{c2} #{d2} |"
+  puts "3  #{a3} #{b3} #{c3} #{d3} |"
+  puts "  .........|"
 
  
   
 
 end
 
-def display_target_field_CHEAT(game)
+def player_1_sonar(game)
   puts "PLAYER 1 BOARD:"
 
   a0 = game.player_2.board.hash[:A0].occupied
@@ -80,16 +78,16 @@ def display_target_field_CHEAT(game)
   d2 = game.player_2.board.hash[:D2].occupied
   d3 = game.player_2.board.hash[:D3].occupied
   
-  puts ". A B C D"
-  puts "  ......."
-  puts "  #{a0} #{a1} #{a2} #{a3}"
-  puts "  #{b0} #{b1} #{b2} #{b3}"
-  puts "  #{c0} #{c1} #{c2} #{c3}"
-  puts "  #{d0} #{d1} #{d2} #{d3}"
-  puts "  ......."
+  puts ".    A     B     C     D |"
+  puts "0  #{a0} #{b0} #{c0} #{d0} |"
+  puts "1  #{a1} #{b1} #{c1} #{d1} |"
+  puts "2  #{a2} #{b2} #{c2} #{d2} |"
+  puts "3  #{a3} #{b3} #{c3} #{d3} |"
+  puts "  .........|"
+
 end
 
-def check_hits(game)
+def player_1_check_hits(game)
   puts "PLAYER 1:"
   puts "Choose a target space (A0..D3)"
   input = gets.chomp.to_sym
@@ -100,16 +98,23 @@ def check_hits(game)
   if game.player_1.shots.last.occupied == true
     target.status = "H"
   else
-    target_status = "M"
+    target.status = "M"
   end
 
 end
 
+def shooting_gallery(game, turns)
+  boards_setup(game)
+  turns.times do
+    display_player_1_target_field(game)
+    player_1_sonar(game)
+    player_1_check_hits(game)
+  end
+end
 
-boards_setup(game)
-display_target_field(game)
-display_target_field_CHEAT(game)
-check_hits(game)
+shooting_gallery(game, 10)
+
+
 
 
 binding.pry

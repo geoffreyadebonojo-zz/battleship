@@ -26,6 +26,8 @@ class Computer < Player
     r2 = adjacents(r1).sample 
     ship(r1, r2)
 
+    puts "Computer's ships are set"
+    puts ""
     return "board is set"
   end
 
