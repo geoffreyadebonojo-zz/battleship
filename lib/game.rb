@@ -1,16 +1,21 @@
-require 'pry'
-require './lib/game'
-require './lib/player'
-require './lib/board'
-require './lib/space'
+class Game
+  attr_reader :player_1,
+              :player_2
 
+  def initialize(player_1, player_2)
+    @player_1 = player_1
+    @player_2 = player_2
+  end
 
+  def player_shot(attacker, defender, target)
+    attacker.shoot(target)
+    current = attacker.shots.last
 
+    if defender.board.hash[current].occupied
+      defender.board.hash[current].status = "H"
+    else
+      defender.board.hash[current].status = "M"
+    end
+  end
 
-board_1 = Board.new
-board_2 = Board.new
-player_1 = Player.new(board_1)
-player_2 = Player.new(board_2)
-game = Game.new(player_1, player_2)
-
-binding.pry
+end

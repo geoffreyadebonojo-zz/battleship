@@ -13,7 +13,7 @@ class GameTest < Minitest::Test
     board_2 = Board.new
 
     @player_1 = Player.new(board_1)
-    @player_2 = Player.new(board_2)
+    @player_2 = Computer.new(board_2)
     @game = Game.new(@player_1, @player_2)
   end
 
