@@ -10,7 +10,8 @@ require './lib/computer'
 board_1 = Board.new
 board_2 = Board.new
 player_1 = Player.new(board_1)
-player_2 = Computer.new(board_2)
+# player_2 = Computer.new(board_2)
+player_2 = Player.new(board_2)
 game = Game.new(player_1, player_2)
 
 
@@ -51,10 +52,65 @@ def display_target_field(game)
   puts "  #{d0} #{d1} #{d2} #{d3}"
   puts "  ......."
 
+ 
+  
+
 end
+
+def display_target_field_CHEAT(game)
+  puts "PLAYER 1 BOARD:"
+
+  a0 = game.player_2.board.hash[:A0].occupied
+  a1 = game.player_2.board.hash[:A1].occupied
+  a2 = game.player_2.board.hash[:A2].occupied
+  a3 = game.player_2.board.hash[:A3].occupied
+
+  b0 = game.player_2.board.hash[:B0].occupied
+  b1 = game.player_2.board.hash[:B1].occupied
+  b2 = game.player_2.board.hash[:B2].occupied
+  b3 = game.player_2.board.hash[:B3].occupied
+
+  c0 = game.player_2.board.hash[:C0].occupied
+  c1 = game.player_2.board.hash[:C1].occupied
+  c2 = game.player_2.board.hash[:C2].occupied
+  c3 = game.player_2.board.hash[:C3].occupied
+
+  d0 = game.player_2.board.hash[:D0].occupied
+  d1 = game.player_2.board.hash[:D1].occupied
+  d2 = game.player_2.board.hash[:D2].occupied
+  d3 = game.player_2.board.hash[:D3].occupied
+  
+  puts ". A B C D"
+  puts "  ......."
+  puts "  #{a0} #{a1} #{a2} #{a3}"
+  puts "  #{b0} #{b1} #{b2} #{b3}"
+  puts "  #{c0} #{c1} #{c2} #{c3}"
+  puts "  #{d0} #{d1} #{d2} #{d3}"
+  puts "  ......."
+end
+
+def check_hits(game)
+  puts "PLAYER 1:"
+  puts "Choose a target space (A0..D3)"
+  input = gets.chomp.to_sym
+
+  target = game.player_2.board.hash[input]
+
+  game.player_1.shoot(target)
+  if game.player_1.shots.last.occupied == true
+    target.status = "H"
+  else
+    target_status = "M"
+  end
+
+end
+
 
 boards_setup(game)
 display_target_field(game)
+display_target_field_CHEAT(game)
+check_hits(game)
+
 
 binding.pry
 

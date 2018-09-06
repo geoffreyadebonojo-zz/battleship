@@ -23,9 +23,7 @@ class Computer < Player
     symbol = (row.sample + column.sample).to_sym
 
     r1 = @board.hash[symbol]
-    
     r2 = adjacents(r1).sample 
-
     ship(r1, r2)
 
     return "board is set"

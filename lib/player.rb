@@ -13,7 +13,7 @@ class Player
   end
               #A2
   def shoot(space)
-    @shots << space.to_sym
+    @shots << space
   end
 
   def to_index(space)
@@ -85,7 +85,7 @@ class Player
     print ">"
     r2 = gets.chomp.to_sym
     tail = @board.hash[r2]
-    
+
     ship(head, tail)
 
     puts "ship placed"
