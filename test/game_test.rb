@@ -5,6 +5,7 @@ require './lib/game'
 require './lib/player'
 require './lib/board'
 require './lib/space'
+require './lib/computer'
 
 class GameTest < Minitest::Test
 
@@ -23,7 +24,7 @@ class GameTest < Minitest::Test
 
   def test_it_has_players_as_attributes
     assert_instance_of Player, @game.player_1
-    assert_instance_of Player, @game.player_2
+    assert_instance_of Computer, @game.player_2
   end
 
   def test_it_has_two_different_boards
@@ -53,7 +54,7 @@ class GameTest < Minitest::Test
   end
 
   def test_it_can_shoot_and_miss
-    @game.player_shot(@player_1, @player_2, "A2")
+    @game.player_shot(@player_1, @player_2, :A2)
 
     # miss
     assert_equal "M", @game.player_2.board.hash[:A2].status
@@ -63,9 +64,14 @@ class GameTest < Minitest::Test
   end
 
   def test_it_can_shoot_and_hit
-    @game.player_2.ship("A2", "A3")
 
-    @game.player_shot(@player_1, @player_2, "A2")
+    a2 =  @game.player_2.board.hash[:A2]
+    a3 =  @game.player_2.board.hash[:A3]
+
+
+    @game.player_2.ship(a2, a3)
+
+    @game.player_shot(@player_1, @player_2, :A2)
 
     # hit
     assert_equal "H", @game.player_2.board.hash[:A2].status

@@ -56,7 +56,7 @@ def display_player_1_target_field(game)
 end
 
 def player_1_sonar(game)
-  puts "PLAYER 1 BOARD:"
+  puts "ENEMY SHIPS:"
 
   a0 = game.player_2.board.hash[:A0].occupied
   a1 = game.player_2.board.hash[:A1].occupied
@@ -105,7 +105,7 @@ end
 
 
 def display_player_2_target_field(game)
-  puts "PLAYER 2 BOARD:"
+  puts "ENEMY SHIPS:"
 
   a0 = game.player_1.board.hash[:A0].status
   a1 = game.player_1.board.hash[:A1].status
@@ -192,7 +192,7 @@ def shooting_gallery(game, turns)
   end
 end
 
-
+# dev tool for mechanics
 # shooting_gallery(game, 10)
 
 def run(game, turns)

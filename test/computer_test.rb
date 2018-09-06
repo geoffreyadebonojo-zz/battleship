@@ -15,7 +15,7 @@ class ComputerTest < Minitest::Test
   end
 
   def test_it_exists
-    assert_instance_of ComputerPlayer, @computer
+    assert_instance_of Computer, @computer
   end
 
   def test_attributes

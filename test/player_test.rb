@@ -29,16 +29,21 @@ class PlayerTest < Minitest::Test
   end
 
   def test_ship_is_just_an_array_of_two_spaces
-    @player.ship("A2", "A3")
-    assert_equal true, @player.board.hash[:A2].occupied
-    assert_equal true, @player.board.hash[:A3].occupied
+    a2 = @player.board.hash[:A2]
+    a3 = @player.board.hash[:A3]
+    
+    @player.ship(a2, a3)
+
+    assert_equal [a2, a3], @player.ships.last
+    assert_equal true, a2.occupied
+    assert_equal true, a3.occupied
   end
 
   def test_it_shoots
     @player.shoot("A1")
-    assert_equal [:A1], @player.shots
+    assert_equal ["A1"], @player.shots
     @player.shoot("A2")
-    assert_equal [:A1, :A2], @player.shots
+    assert_equal ["A1", "A2"], @player.shots
   end
 
   def test_it_can_convert_between_formats

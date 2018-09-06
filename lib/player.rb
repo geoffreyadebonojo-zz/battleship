@@ -1,17 +1,23 @@
 class Player
-  attr_reader :board, :shots
+  attr_reader :board, :shots, :ships
 
   def initialize(board)
     @board = board
     @shots = []
+    @ships = []
   end
 
               
-  def ship(one, two, three= nil)
+  def ship(one, two)
+
     one.occupied = true
     two.occupied = true
+    
+    vessel = [one, two]
+   
+    @ships << vessel 
   end
-              #A2
+              #"A2"
   def shoot(space)
     @shots << space
   end
