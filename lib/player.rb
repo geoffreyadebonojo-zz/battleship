@@ -6,15 +6,10 @@ class Player
     @shots = []
   end
 
-              #A2        #A3
-  def ship(space_one, space_two, space_three= nil)
-
-    one = space_one.to_sym
-    two = space_two.to_sym
-
-    @board.hash[one].occupied = true
-    @board.hash[two].occupied = true
-
+              
+  def ship(one, two, three= nil)
+    one.occupied = true
+    two.occupied = true
   end
               #A2
   def shoot(space)
@@ -80,17 +75,18 @@ class Player
 
     puts "place ship HEAD on space (A0..D3)"
     print ">"
-    r1 = gets.chomp.to_s
+    r1 = gets.chomp.to_sym
     
     puts "place ship TAIL"
-    head = @board.hash[r1.to_sym]
+    head = @board.hash[r1]
     adjacents(head).each do |space|
       puts space.name
     end
     print ">"
-    r2 = gets.chomp.to_s
-
-    ship(r1, r2)
+    r2 = gets.chomp.to_sym
+    tail = @board.hash[r2]
+    
+    ship(head, tail)
 
     puts "ship placed"
     

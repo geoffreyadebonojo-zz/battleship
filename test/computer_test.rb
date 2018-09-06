@@ -7,11 +7,11 @@ require './lib/board'
 require './lib/space'
 require './lib/computer'
 
-class ComputerPlayerTest < Minitest::Test
+class ComputerTest < Minitest::Test
 
   def setup
     board = Board.new
-    @computer = ComputerPlayer.new(board)
+    @computer = Computer.new(board)
   end
 
   def test_it_exists
@@ -27,9 +27,7 @@ class ComputerPlayerTest < Minitest::Test
   end
 
   def test_board_setup
-    
-    @computer.board_setup
-
+    assert_equal "board is set", @computer.board_setup
   end
 
 end

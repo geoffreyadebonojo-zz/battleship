@@ -25,4 +25,5 @@
 => "M"
 #[9] pry(main)> game.player_shot(player_1, player_2, "D3")
 => "H"
-
+# pry(main)> game.player_2.select_space
+=> #a random space
