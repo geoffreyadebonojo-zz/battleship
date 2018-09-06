@@ -2,6 +2,7 @@ require './lib/player'
 
 class Computer < Player
    
+
   def initialize(board)
     super(board)
   end
