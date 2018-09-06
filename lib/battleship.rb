@@ -232,7 +232,7 @@ elsif reply == "i"
   puts "What, do you live under a rock or something??"
   
 elsif reply == "q"
-  puts "A wise decision, tangling with the likes of me"
+  puts "A wise decision, not tangling with the likes of me"
   puts "Maybe we can meet again NEXT #{Date.today.strftime("%A")}???"
 end
 
